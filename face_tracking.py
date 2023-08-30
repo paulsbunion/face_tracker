@@ -28,6 +28,7 @@ myColor=(0,0,255)
 frameCounter = -1;
 displayFps = True
 displayPreview = True
+checkForFacesEveryXFrames = 10
 
 #Initialize 'currentname' to trigger only when a new person is identified.
 currentname = "unknown"
@@ -203,7 +204,7 @@ while True:
 	
 	# run the face detection and recognition every 10 frames
 	# to look for new faces
-	if frameCounter % 10 == 0:
+	if frameCounter % checkForFacesEveryXFrames == 0:
 		foundFaces = detectAndRecognizeFaces(baseImage)
 		addNewTrackedFaces(foundFaces, trackedFaces, baseImage)
 		
