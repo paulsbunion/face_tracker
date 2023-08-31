@@ -1,9 +1,7 @@
 # import the necessary packages
 # follow the tracker stuff @ https://github.com/gdiepen/face-recognition/blob/master/track%20multiple%20faces/demo%20-%20track%20multiple%20faces.py#L208
-#from imutils.video import VideoStream
 from imutils.video import FPS
 import imutils
-import pickle
 import time
 import cv2
 from picamera2 import Picamera2
@@ -28,21 +26,6 @@ frameCounter = -1;
 displayFps = True
 displayPreview = True
 checkForFacesEveryXFrames = 10
-
-#Initialize 'currentname' to trigger only when a new person is identified.
-currentname = "unknown"
-
-'''Update the list of tracked faces by checking if they still are valid
-positions from the previous frame'''
-'''for any found faces, check if it is a new face that needs to be tracked'''
-'''detect using opencv and track with dlib'''
-#Determine faces from encodings.pickle file model created from train_model.py
-encodingsP = "encodings.pickle"
-
-# load the known faces and embeddings along with OpenCV's Haar
-# cascade for face detection
-print("[INFO] loading encodings + face detector...")
-data = pickle.loads(open(encodingsP, "rb").read())
 
 # start the FPS counter
 fps = FPS().start()

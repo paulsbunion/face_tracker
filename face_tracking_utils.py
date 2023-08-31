@@ -1,5 +1,24 @@
-from face_tracking import currentname, data
+#from face_tracking import currentname, data
+import pickle
+import face_recognition
+import dlib
+#import time
+import cv2
 
+#Initialize 'currentname' to trigger only when a new person is identified.
+currentname = "unknown"
+
+'''Update the list of tracked faces by checking if they still are valid
+positions from the previous frame'''
+'''for any found faces, check if it is a new face that needs to be tracked'''
+'''detect using opencv and track with dlib'''
+#Determine faces from encodings.pickle file model created from train_model.py
+encodingsP = "encodings.pickle"
+
+# load the known faces and embeddings along with OpenCV's Haar
+# cascade for face detection
+print("[INFO] loading encodings + face detector...")
+data = pickle.loads(open(encodingsP, "rb").read())
 
 def updateTrackedFaces(trackedFaces, baseImage):
 	# check quality of tracked faces
